@@ -5,6 +5,8 @@
 This Chrome extension serves as a temporary workaround for a decoding issue present in some Windows 7 builds.  
 It addresses problems related to Google Material Icons - character encoding that may occur when browsing certain websites on affected Windows 7 systems.
 
+Issue reference: https://github.com/google/material-design-icons/issues/1798
+
 ## Installation
 
 1. Download the extension files or clone this repository.
