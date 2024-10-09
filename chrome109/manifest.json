@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Font URL Replacer",
+  "version": "1.0",
+  "description": "Replaces font URLs from v142 to v141",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "https://fonts.gstatic.com/*",
+    "https://*.google.com/*",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
