@@ -29,6 +29,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     isEnabled = request.state;
     console.log('Replacement toggled:', isEnabled);
     chrome.storage.sync.set({enabled: isEnabled});
+    
+    // Notify all content scripts about the state change
+    chrome.tabs.query({}, function(tabs) {
+      tabs.forEach(function(tab) {
+        chrome.tabs.sendMessage(tab.id, {action: 'stateChanged', enabled: isEnabled});
+      });
+    });
+  } else if (request.action === 'getState') {
+    sendResponse({enabled: isEnabled});
   }
 });
 
