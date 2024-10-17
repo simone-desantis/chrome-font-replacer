@@ -1,0 +1,22 @@
+name: Create Release Archive
+
+on:
+  push:
+    tags:
+      - "v*.*.*" # Trigger on version tags
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create archive
+        run: |
+          git archive --format=zip --output=chrome109.zip HEAD chrome109/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: chrome109.zip
