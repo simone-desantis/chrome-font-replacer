@@ -1,1 +1,3 @@
-/* export-ignore
+* export-ignore
+chrome109/ !export-ignore
+chrome109/** !export-ignore
