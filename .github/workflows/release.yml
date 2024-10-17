@@ -22,6 +22,6 @@ jobs:
           git archive --format=zip --output=chrome109.zip HEAD chrome109/
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.0.8
         with:
           files: chrome109.zip
