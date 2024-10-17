@@ -26,3 +26,5 @@ jobs:
         with:
           files: chrome109.zip
           tag_name: ${{ github.event.inputs.release_tag || github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
