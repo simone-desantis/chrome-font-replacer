@@ -25,3 +25,4 @@ jobs:
         uses: softprops/action-gh-release@v2.0.8
         with:
           files: chrome109.zip
+          tag_name: ${{ github.event.inputs.release_tag || github.ref_name }}
